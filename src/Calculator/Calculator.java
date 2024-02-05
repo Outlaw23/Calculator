@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class Calculator {
 
-	private static final int LeftHandNumber = 0;
+	private static final int leftHandNumber = 0;
 	private static final int rightHandNumber = 1;
 	private static final int operator = 2;
 
-	int mode = LeftHandNumber;
-	double[] numbers = {0, 0};
+	int mode = leftHandNumber;
+	double LeftHandNumber = 0, RightHandNumber = 0;
 	String message = "";
 
 
@@ -28,28 +28,28 @@ public class Calculator {
 
 	public void plusOperator() {
 
-		System.out.println(numbers[0] + " + " + numbers[1] + " = "
-				+ (numbers[0] + numbers[1]));
+		System.out.println(LeftHandNumber + " + " + RightHandNumber + " = "
+				+ (LeftHandNumber + RightHandNumber));
 	}
 
 	public void minusOperator() {
-		System.out.println(numbers[0] + " - " + numbers[1] + " = "
-				+ (numbers[0] - numbers[1]));
+		System.out.println(LeftHandNumber + " - " + RightHandNumber + " = "
+				+ (LeftHandNumber - RightHandNumber));
 	}
 
 	public void divideOperator() {
-		System.out.println(numbers[0] + " / " + numbers[1] + " = "
-				+ (numbers[0] / numbers[1]));
+		System.out.println(LeftHandNumber + " / " + RightHandNumber + " = "
+				+ (LeftHandNumber / RightHandNumber));
 	}
 
 	public void duplicateOperator() {
-		System.out.println(numbers[0] + " * " + numbers[1] + " = "
-				+ (numbers[0] * numbers[1]));
+		System.out.println(LeftHandNumber + " * " + RightHandNumber + " = "
+				+ (LeftHandNumber * RightHandNumber));
 	}
 
 	public void percentageOperator() {
-		System.out.println(numbers[0] + " % " + numbers[1] + " = "
-				+ (numbers[0] % numbers[1]));
+		System.out.println(LeftHandNumber + " % " + RightHandNumber + " = "
+				+ (LeftHandNumber % RightHandNumber));
 	}
 
 
@@ -64,9 +64,9 @@ public class Calculator {
 			}
 
 
-			if (mode == numbers[0]) {
+			if (mode == leftHandNumber) {
 				System.out.println("Please type the first number.");
-			} else if (mode == numbers[1]) {
+			} else if (mode == rightHandNumber) {
 				System.out.println("Please type the second number.");
 			} else {
 				System.out.println("Please type the operator +, -, /, *, %");
@@ -75,16 +75,16 @@ public class Calculator {
 
 			message = scanner.nextLine();
 
-			if (mode == numbers[0]) {
+			if (mode == leftHandNumber) {
 				try {
-					numbers[0] = Double.parseDouble(message);
+					LeftHandNumber = Double.parseDouble(message);
 				} catch (NumberFormatException numberFormatException) {
 					System.out.println("invald operator: " + message);
 					continue;
 				}
-			} else if (mode == numbers[1]) {
+			} else if (mode == rightHandNumber) {
 				try {
-					numbers[1] = Double.parseDouble(message);
+					RightHandNumber = Double.parseDouble(message);
 				} catch (NumberFormatException numberFormatException) {
 					System.out.println("invald operator: " + message);
 					continue;
